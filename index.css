@@ -1,0 +1,169 @@
+:root {
+    --text-color: black;
+
+    --color1: #F9ED69;
+    --color2: #F08A5D;
+    --color3: #B83B5E;
+    --color4: #6A2C70;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+
+    background-image: linear-gradient(220deg, var(--color1), var(--color2), var(--color3), var(--color4));
+    justify-content: center;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+#navbar {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar > ul {
+    list-style: none;
+    display: flex;
+    font-size: 1.5rem;
+}
+
+#navbar > ul li {
+    margin-inline: 2rem;
+    padding: 0.5rem;
+    min-width: 8rem;
+
+    border-radius: 0.5rem;
+
+    color: white;
+    background-color: black;
+
+    cursor: pointer;
+}
+
+#input-n-wrap {
+    width: 100%;
+}
+
+#input-n {
+    width: 50%;
+    height: 2rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#btn-input-n {
+    width: 2rem;
+    height: 2rem;
+
+    cursor: pointer;
+}
+
+#rods-wrap {
+    display: grid;
+    place-items: center;
+    width: 40rem;
+}
+
+#rods {
+
+    display: flex;
+    gap: 12rem;
+    position: relative;
+    
+    width: 90%;
+    min-height: 50vh;
+    
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    margin: 2rem;
+}
+
+.rod {
+    height: 20vh;
+    width: 1px;
+    color: black;
+    border: 0.5rem groove black;
+    border-radius: 1rem;
+
+    cursor: pointer;
+}
+
+.rod:hover {
+    opacity: 70%;
+}
+
+/* stand for the rod */
+.rod::before {
+    content: "";
+
+    display: inline-block;
+    position: absolute;
+
+    --height: 45px;
+    --width: calc(var(--height)*2);
+    --mul: 2;
+    width: calc(var(--height)*var(--mul));
+    height: calc(var(--height));
+
+    background-image: linear-gradient(180deg, grey, black);
+    transform: translate(-50%) rotateX(70deg);
+
+    bottom: 25%;
+    z-index: 10;
+
+}
+
+.rod::after {
+    content: "";
+
+    background-image: linear-gradient(180deg, black, grey);
+    --x: 170px;
+
+    height: calc(var(--x));
+    width: calc(var(--x));
+
+    border-radius: 100rem;
+
+    position: relative;
+    
+    display: inline-block;
+
+    transform: translate(-50%) rotateX(80deg);
+    /* -webkit-transform: rotate(100deg);
+    -ms-transform: rotate(100deg);
+    -moz-transform: rotate(100deg); */
+    
+    top: 50%;
+}
+
+.disc {
+    --x: 20px;
+    width: calc(var(--x)*4);
+    height: calc(var(--x));
+
+    transform: translate(-50%);
+    bottom: 33%;
+
+    border-radius: 1rem;
+
+    z-index: 10;
+    position: absolute;
+    background-image: linear-gradient(black, black);
+
+}
