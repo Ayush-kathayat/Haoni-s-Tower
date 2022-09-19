@@ -1,23 +1,33 @@
-const input = document.getElementById ("input-n");
-const okBtn = document.getElementById ("btn-input-n");
+// use js to inject the link tag with the css file
 
-const rods = [
-    document.getElementById ("rod1"),
-    document.getElementById ("rod2"),
-    document.getElementById ("rod3")
-];
+function main () {
+    const link = document.createElement ("link");
+    link.rel = "stylesheet";
+    link.href = "./index.css";
+    document.head.appendChild (link);
 
-const discs = [];
+    const input = document.getElementById ("input-n");
+    const okBtn = document.getElementById ("btn-input-n");
 
-const disc1 = document.createElement ("div");
-disc1.class ("disc");
+    const rods = [
+        document.getElementById ("rod1"),
+        document.getElementById ("rod2"),
+        document.getElementById ("rod3")
+    ];
 
-rods[0].appendChild (disc1);
+    const discs = [];
 
-const createDisc = ( n ) => {
-    const disc = disc.cloneNode (deep);
-    const width = getComputedStyle (disc).width;
-    disc.style.width = width * n;
-    return disc;
+    const disc1 = document.createElement ("div");
+    disc1.class ("disc");
+
+    rods[0].appendChild (disc1);
+
+    const createDisc = ( n ) => {
+        const disc = disc.cloneNode (deep);
+        const width = getComputedStyle (disc).width;
+        disc.style.width = width * n;
+        return disc;
+    }
 }
 
+main ();

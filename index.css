@@ -36,13 +36,13 @@ a {
     justify-content: center;
 }
 
-#navbar > ul {
+#navbar>ul {
     list-style: none;
     display: flex;
     font-size: 1.5rem;
 }
 
-#navbar > ul li {
+#navbar>ul li {
     margin-inline: 2rem;
     padding: 0.5rem;
     min-width: 8rem;
@@ -55,20 +55,35 @@ a {
     cursor: pointer;
 }
 
+#navbar>ul li {
+    transition: all 1s ease-in-out;
+}
+
+
+#navbar>ul li:hover {
+    background-color: var(--color1);
+    color: black;
+}
+
+
 #input-n-wrap {
     width: 100%;
+    margin-top: 2rem;
 }
 
 #input-n {
-    width: 50%;
+    width: 40%;
     height: 2rem;
     text-align: center;
     font-size: 1rem;
+    z-index: 10;
 }
 
 #btn-input-n {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.3rem;
+
+    vertical-align: top;
 
     cursor: pointer;
 }
@@ -76,30 +91,33 @@ a {
 #rods-wrap {
     display: grid;
     place-items: center;
-    width: 40rem;
+    margin-top: -5rem;
+    pointer-events: visible;
+    visibility: hidden;
 }
 
 #rods {
-
     display: flex;
-    gap: 12rem;
+    gap: 15rem;
     position: relative;
-    
+
     width: 90%;
-    min-height: 50vh;
-    
+    height: 35rem;
+    margin: 2rem 0;
+
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    margin: 2rem;
 }
 
 .rod {
-    height: 20vh;
+    height: 15rem;
     width: 1px;
     color: black;
     border: 0.5rem groove black;
     border-radius: 1rem;
+
+    visibility: visible;
 
     cursor: pointer;
 }
@@ -108,32 +126,39 @@ a {
     opacity: 70%;
 }
 
-/* stand for the rod */
 .rod::before {
+    /* stand for the rod */
+    /* rectangular */
+
     content: "";
 
     display: inline-block;
     position: absolute;
 
-    --height: 45px;
+    --height: 50px;
     --width: calc(var(--height)*2);
     --mul: 2;
+
     width: calc(var(--height)*var(--mul));
     height: calc(var(--height));
 
     background-image: linear-gradient(180deg, grey, black);
     transform: translate(-50%) rotateX(70deg);
 
-    bottom: 25%;
+    bottom: 20%;
     z-index: 10;
 
 }
 
 .rod::after {
+
+    /* stand for rod */
+    /* circular */
+
     content: "";
 
     background-image: linear-gradient(180deg, black, grey);
-    --x: 170px;
+    --x: 180px;
 
     height: calc(var(--x));
     width: calc(var(--x));
@@ -141,24 +166,36 @@ a {
     border-radius: 100rem;
 
     position: relative;
-    
+
     display: inline-block;
 
     transform: translate(-50%) rotateX(80deg);
     /* -webkit-transform: rotate(100deg);
     -ms-transform: rotate(100deg);
     -moz-transform: rotate(100deg); */
-    
-    top: 50%;
+    top: 70%;
+}
+
+.rod-name {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
 }
 
 .disc {
     --x: 20px;
-    width: calc(var(--x)*4);
+    --level: 8;
+    --size: 12;
+
+    width: calc(var(--x)*4*(var(--size)/8 + 1));
     height: calc(var(--x));
 
     transform: translate(-50%);
-    bottom: 33%;
+    bottom: calc(33% + var(--x)*(7 - var(--level)));
 
     border-radius: 1rem;
 
