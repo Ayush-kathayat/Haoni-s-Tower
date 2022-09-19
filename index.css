@@ -22,6 +22,7 @@ body {
     background-image: linear-gradient(220deg, var(--color1), var(--color2), var(--color3), var(--color4));
     justify-content: center;
     text-align: center;
+    overflow-x: hidden;
 }
 
 a {
@@ -94,6 +95,8 @@ a {
     margin-top: -5rem;
     pointer-events: visible;
     visibility: hidden;
+
+    border: 20px solid white;
 }
 
 #rods {
@@ -145,7 +148,7 @@ a {
     background-image: linear-gradient(180deg, grey, black);
     transform: translate(-50%) rotateX(70deg);
 
-    bottom: 20%;
+    bottom: 23%;
     z-index: 10;
 
 }
@@ -158,7 +161,7 @@ a {
     content: "";
 
     background-image: linear-gradient(180deg, black, grey);
-    --x: 180px;
+    --x: 150px;
 
     height: calc(var(--x));
     width: calc(var(--x));
