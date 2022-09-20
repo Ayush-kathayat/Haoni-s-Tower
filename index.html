@@ -9,6 +9,35 @@
     <title> Haoni's Tower </title>
 </head>
 <body>
+
+    <style>
+        body {
+            display: grid;
+
+            width: 100vw;
+            max-width: 100vw;
+            min-height: 100vh;
+
+            background-image: linear-gradient(220deg, var(--color1), var(--color2), var(--color3), var(--color4));
+            justify-content: center;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+    </style>
+    <script>
+        // use js to inject the link tag with the css file
+        const applyCSS = () => {
+            const link = document.createElement ("link");
+            link.rel = "stylesheet";
+            link.href = "./index.css";
+            document.head.appendChild (link);
+        };
+        applyCSS ();
+    </script>
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
     <nav id = "navbar">
         <ul>
             <a href="#">
@@ -17,26 +46,60 @@
             <a href="links/redirect/about.html">
                 <li> About </li>
             </a>
-            <a href=""></a>
-            <li> Contact Me </li>
+            <a href="links/redirect/contact.html">
+                <li> Contact Me </li>
+            </a>
         </ul>
     </nav>
     <main id = "main-body">
         <div id="input-n-wrap">
             <input type="number" name="" id="input-n" placeholder="Enter the no. of rings" />
             <button id = "btn-input-n" > OK </button>
+            <div class="tooltip">
+                <div class="tooltiptext">
+                    Enter the no. of rings
+                </div>
+                <!-- rules for the no. of discs -->
+                <div class="tooltiptext">
+                    1. The no. of discs must be between 1 and 12
+                </div>
+                <div class="tooltiptext">
+                    2. The no. of discs must be an integer
+                </div>
+
+            </div>
+        </div>
+        <div id="instructions-wrap">
+            <div id="select-from" class = "instructions">
+                Choose a disc to move from
+            </div>
+            <div id="select-to" class = "instructions">
+                Choose a disc to move to
+            </div>
+            <div id="from-and-to" class = "instructions">
+                <span id = "from-wrap">
+                    From : 
+                    <span id="from">
+                    </span>
+                </span>
+                <span id = "to-wrap">
+                    To :
+                    <span id="to"> 
+                    </span>
+                </span>
+            </div>
         </div>
         <div id = "rods-wrap">
             <div id="rods">
                 <div class = "rod" id="rod1">
-                    <div class="rod-name"  style="left: 10%;">A</div>
-                    <div class = "disc"></div>
+                    <div class="rod-name"  style="left: 5%;">A</div>
+                    <!-- <div class = "disc"></div> -->
                 </div>
                 <div class = "rod" id="rod2">
                     <div class="rod-name">B</div>
                 </div>
                 <div class = "rod" id="rod3">
-                    <div class="rod-name"  style="left: 90%;">C</div>
+                    <div class="rod-name"  style="left: 94%;">C</div>
                 </div>
             </div>
         </div>

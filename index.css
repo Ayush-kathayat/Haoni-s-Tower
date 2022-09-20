@@ -5,6 +5,8 @@
     --color2: #F08A5D;
     --color3: #B83B5E;
     --color4: #6A2C70;
+
+    --color-selected: #F9ED69;
 }
 
 * {
@@ -57,7 +59,7 @@ a {
 }
 
 #navbar>ul li {
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 
@@ -80,6 +82,30 @@ a {
     z-index: 10;
 }
 
+.tooltip {
+    display: none;
+}
+
+
+#input-n:focus ~ div[class^='tooltip'] {
+    position: absolute;
+    display: grid;
+
+    place-items: flex-start;
+
+    background-image: linear-gradient(220deg, var(--color1), var(--color3));    color: white;
+
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    
+    transform: translate(-50%, -50%);
+
+    top: 10%;
+    left: 50%;
+    z-index: 100;
+
+}
+
 #btn-input-n {
     width: 2.5rem;
     height: 2.3rem;
@@ -87,6 +113,10 @@ a {
     vertical-align: top;
 
     cursor: pointer;
+}
+
+#select-from, #select-to, #from-and-to {
+    display: none;
 }
 
 #rods-wrap {
@@ -106,7 +136,7 @@ a {
 
     width: 90%;
     height: 35rem;
-    margin: 2rem 0;
+    margin-top: 2rem 0;
 
     align-items: center;
     justify-content: center;
@@ -115,13 +145,14 @@ a {
 
 .rod {
     height: 15rem;
-    width: 1px;
+    width: 5px;
     color: black;
     border: 0.5rem groove black;
     border-radius: 1rem;
 
     visibility: visible;
-
+    text-align: center;
+    /* center the rod */
     cursor: pointer;
 }
 
@@ -148,7 +179,7 @@ a {
     background-image: linear-gradient(180deg, grey, black);
     transform: translate(-50%) rotateX(70deg);
 
-    bottom: 23%;
+    bottom: 25%;
     z-index: 10;
 
 }
@@ -164,7 +195,7 @@ a {
     --x: 150px;
 
     height: calc(var(--x));
-    width: calc(var(--x));
+    width: calc(var(--x)*1.5);
 
     border-radius: 100rem;
 
@@ -176,12 +207,13 @@ a {
     /* -webkit-transform: rotate(100deg);
     -ms-transform: rotate(100deg);
     -moz-transform: rotate(100deg); */
-    top: 70%;
+    top: 65%;
 }
+
 
 .rod-name {
     position: absolute;
-    bottom: 0%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3rem;
@@ -191,14 +223,17 @@ a {
 
 .disc {
     --x: 20px;
-    --level: 8;
+    --level: -1;
     --size: 12;
 
-    width: calc(var(--x)*4*(var(--size)/8 + 1));
+
+
+    width: calc(var(--x)*(var(--size)/8 + 1)*5);
     height: calc(var(--x));
 
-    transform: translate(-50%);
-    bottom: calc(33% + var(--x)*(7 - var(--level)));
+    transform: translate(-50%) rotateX(35deg);
+    
+    bottom: calc(33% + var(--x)*(var(--level)));
 
     border-radius: 1rem;
 
@@ -206,4 +241,35 @@ a {
     position: absolute;
     background-image: linear-gradient(black, black);
 
+    border: 2px solid;
+    border-color: var(--color4);
+
+}
+
+.popup {
+    position: absolute;
+    display: grid;
+
+    place-items: center;
+
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    
+    transform: translate(-50%, -50%);
+
+    bottom: 10%;
+    left: 50%;
+    z-index: 100;
+    
+    /* transition on the popup */
+    transition: all 0.5s ease-in-out;
+
+}
+
+.popup-error {
+    background-color: red;
+}
+
+.popup-success {
+    background-color: green;
 }
